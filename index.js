@@ -10,8 +10,9 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1920,
+    height: 1080,
+    icon: "highwayicon.ico",
   });
 
   // and load the index.html of the app.
