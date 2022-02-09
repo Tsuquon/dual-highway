@@ -2,7 +2,7 @@ body {
   font-family: Georgia, serif;
   color: black;
   margin: 40px;
-  max-width: 38rem;
+  max-width: 40000px;
   padding: 2rem;
   background-image: url('paper-background.jpeg');
   background-attachment: fixed;
@@ -37,10 +37,12 @@ th {
 .headingFont {
   font-size: 40px;
   background-color: hsla(195, 57%, 5%, 1);
-
 }
 #myTable {
-  border-spacing: 4px
+  border-spacing: 4px;
+  table-layout: fixed;
 }
-.addProject {
+#everything {
+  display: flex;
+  flex-direction: row;
 }

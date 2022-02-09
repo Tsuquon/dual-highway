@@ -8,35 +8,71 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>Highway Planner</h1>
-    <table id="myTable" style="width:500px;">
-      <tr class="tableHeader"; style="height:75px">
-        <th class="headingFont" contenteditable="true" style="width:600px">Project Goal</th>
-        <td class="addProject"; rowspan="2"; style="padding-left:20px"><img class="btnAddProject" src="plus-square.svg" style="width:25px; height:25px;" onclick="addNewProject()"></td>
-      </tr>
-      <tr class="tableContent"; style="height: 500px">
-        <td class="tableBackground" style="vertical-align: top; width:300px";>
-          <table id="miniTable">
-            <tr>
-              <td class="miniGoals" style="width:475px"; contenteditable="true";>Insert Goal</td>
-              <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
-            </tr>
-            <tr>
-              <td class="miniGoals"; style="width:475px"; contenteditable="true";>Insert Goal</td>
-              <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
-            </tr>
-            <tr>
-              <td class="miniGoals"; style="width:475px"; contenteditable="true";>Insert Goal</td>
-              <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
-            </tr>
-            <tr>
-              <td class="miniGoalsAdd" style="text-align: center; width:475px"><img class="btnAdd" src="plus-square.svg" style="width:25px; height:25px;" onclick="addMiniGoal()"></td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
+    <div id="title">
+      <h1>Highway Planner</h1>
+    </div>
+    <div id="everything">
+      <div id="mainContent">
+        <table id="myTable" style="width:500px;">
+          <tr class="tableHeader"; style="height:75px">
+            <th class="headingFont" contenteditable="true" style="width:600px">Project Goal</th>
+            <td class="addProject"; rowspan="2"; style="padding-left:20px; width:60px"><img class="btnAddProject" src="plus-square.svg" style="width:25px; height:25px;" onclick="addNewProject()"></td>
+          </tr>
+          <tr class="tableContent"; style="height: 500px">
+            <td class="tableBackground" style="vertical-align: top; width:300px";>
+              <table id="miniTable">
+                <tr>
+                  <td class="miniGoals" style="width:475px"; contenteditable="true";>Insert Goal</td>
+                  <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
+                </tr>
+                <tr>
+                  <td class="miniGoals"; style="width:475px"; contenteditable="true";>Insert Goal</td>
+                  <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
+                </tr>
+                <tr>
+                  <td class="miniGoals"; style="width:475px"; contenteditable="true";>Insert Goal</td>
+                  <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
+                </tr>
+                <tr>
+                  <td class="miniGoalsAdd" style="text-align: center; width:475px"><img class="btnAdd" src="plus-square.svg" style="width:25px; height:25px;" onclick="addMiniGoal()"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   
+    <template id="tableTemplate">
+      <table id="myTable" style="width:500px;">
+        <tr class="tableHeader"; style="height:75px">
+          <th class="headingFont" contenteditable="true" style="width:600px">Project Goal</th>
+          <td class="addProject"; rowspan="2"; style="padding-left:20px; width:60px"><img class="btnAddProject" src="plus-square.svg" style="width:25px; height:25px;" onclick="addNewProject()"></td>
+        </tr>
+        <tr class="tableContent"; style="height: 500px">
+          <td class="tableBackground" style="vertical-align: top; width:300px";>
+            <table id="miniTable">
+              <tr>
+                <td class="miniGoals" style="width:475px"; contenteditable="true";>Insert Goal</td>
+                <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
+              </tr>
+              <tr>
+                <td class="miniGoals"; style="width:475px"; contenteditable="true";>Insert Goal</td>
+                <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
+              </tr>
+              <tr>
+                <td class="miniGoals"; style="width:475px"; contenteditable="true";>Insert Goal</td>
+                <td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td>
+              </tr>
+              <tr>
+                <td class="miniGoalsAdd" style="text-align: center; width:475px"><img class="btnAdd" src="plus-square.svg" style="width:25px; height:25px;" onclick="addMiniGoal()"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </template>
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
       $(document).ready(function () {
@@ -49,13 +85,12 @@
       function addMiniGoal() {
         document.getElementById("miniTable").insertRow(0).innerHTML = '<tr><td class="miniGoals" style="width:475px"; contenteditable="true";>Insert Goal</td><td style="text-align:center;" class="miniGoalsDelete"><img class="btnDelete" src="x-circle.svg" style="width:25px; height:25px;"></td></tr>';
       }
-      function addNewProject(newNode, existingNode) {
-            existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
-        }
-        let menu = document.getElementById('myTable');
-        let li = document.createElement('tr');
-        li.textContent = table;
-        addNewProject(li,  menu.lastElementChild);    
+      
+      function addNewProject() {
+        var idOfSource = "myTable";
+        document.create
+        document.getElementById("everything").innerHTML += document.getElementById("tableTemplate").innerHTML ;
+      }
     
     </script>
 
